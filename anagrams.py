@@ -6,6 +6,11 @@ wordDictionary = enchant.Dict("en_US")
 validWords = []
 invalidWords = []
 
+def add_to_list(addition, destination):
+    """Adds the given addition to the destination list (if it's not already in there)"""
+    if addition not in destination:
+        destination.append(addition)
+
 def find_all_permutations(word):
     """Finds all the permutations of a given word."""
     permutations = [permutation for permutation in it.permutations(word)]
@@ -26,11 +31,9 @@ def organize_results(result):
     permutation, validity = result
     match validity:
         case True:
-            if permutation not in validWords:
-                validWords.append(permutation)
+            add_to_list(permutation, validWords)
         case False:
-            if permutation not in invalidWords:
-                invalidWords.append(permutation)
+            add_to_list(permutation, invalidWords)
 
 def format_string(validAnagrams, invalidAnagrams):
     """Formats all the anagrams into a nice, readable format."""
