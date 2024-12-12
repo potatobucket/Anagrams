@@ -37,7 +37,10 @@ def organize_results(result):
 
 def format_string(validAnagrams, invalidAnagrams):
     """Formats all the anagrams into a nice, readable format."""
-    validString = ", ".join(validAnagrams)
+    if len(validAnagrams) == 0:
+        validString = "There are no valid English language anagrams for that word."
+    else:
+        validString = ", ".join(validAnagrams)
     invalidString = ", ".join(invalidAnagrams)
     formattedString = f"""
         Your valid English language anagrams are:
