@@ -40,10 +40,10 @@ def format_string(validAnagrams, invalidAnagrams):
     validString = ", ".join(validAnagrams)
     invalidString = ", ".join(invalidAnagrams)
     formattedString = f"""
-        Your valid English language anagrams are:
+        There are {len(validAnagrams)} valid English language anagrams:
         {validString}
         
-        Your invalid anagrams are:
+        There are {len(invalidAnagrams)} that are not valid English language words:
         {invalidString}
         """
     return formattedString
