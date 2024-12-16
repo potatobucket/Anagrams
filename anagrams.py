@@ -53,6 +53,3 @@ def find_anagrams(word):
     for newWord in find_all_permutations(word):
         organize_results(check_new_permutation(newWord))
     print(format_string(validWords, invalidWords))
-
-if __name__ == "__main__":
-    find_anagrams("test")
