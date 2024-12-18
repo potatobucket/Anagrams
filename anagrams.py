@@ -3,7 +3,7 @@ import itertools as it
 
 wordDictionary = enchant.Dict("en_US")
 
-validWords = [] #-- there might be a better place to store these. I dunno
+validWords = []
 invalidWords = []
 
 def add_to_list(addition, destination):
@@ -31,9 +31,9 @@ def organize_results(result):
     permutation, validity = result
     match validity:
         case True:
-            add_to_list(permutation, validWords) #-- if I could put the "valid" and "invalid" lists here I think that could work
+            add_to_list(permutation, validWords)
         case False:
-            add_to_list(permutation, invalidWords) #-- but how? How would I get them out in the later function?
+            add_to_list(permutation, invalidWords)
 
 def format_string(validAnagrams, invalidAnagrams):
     """Formats all the anagrams into a nice, readable format."""
