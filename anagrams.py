@@ -3,7 +3,7 @@ import itertools as it
 
 wordDictionary = enchant.Dict("en_US")
 
-validWords = []
+validWords = [] #-- there might be a better place to store these. I dunno
 invalidWords = []
 
 def add_to_list(addition, destination):
