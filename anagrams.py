@@ -34,6 +34,7 @@ def organize_results(result):
             add_to_list(permutation, validWords)
         case False:
             add_to_list(permutation, invalidWords)
+    invalidWords.sort()
 
 def format_string(validAnagrams, invalidAnagrams):
     """Formats all the anagrams into a nice, readable format."""
