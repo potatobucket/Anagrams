@@ -31,9 +31,9 @@ def organize_results(result):
     permutation, validity = result
     match validity:
         case True:
-            add_to_list(permutation, validWords)
+            add_to_list(permutation, validWords) #-- if I could put the "valid" and "invalid" lists here I think that could work
         case False:
-            add_to_list(permutation, invalidWords)
+            add_to_list(permutation, invalidWords) #-- but how? How would I get them out in the later function?
 
 def format_string(validAnagrams, invalidAnagrams):
     """Formats all the anagrams into a nice, readable format."""
