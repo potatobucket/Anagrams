@@ -1,20 +1,20 @@
 import enchant #-- pip install pyenchant
 import itertools as it
 
-wordDictionary = enchant.Dict("en_US")
+wordDictionary: enchant.Dict = enchant.Dict("en_US")
 
-validWords = []
-invalidWords = []
+validWords: list = []
+invalidWords: list = []
 
-def add_to_list(addition, destination):
+def add_to_list(addition: str, destination: list):
     """Adds the given addition to the destination list (if it's not already in there)"""
     if addition not in destination:
         destination.append(addition)
 
-def find_all_permutations(word):
+def find_all_permutations(word: str):
     """Finds all the permutations of a given word."""
-    permutations = [permutation for permutation in it.permutations(word)]
-    anagrams = []
+    permutations: list = [permutation for permutation in it.permutations(word)]
+    anagrams: list = []
     for group in permutations:
         combined = ""
         for letter in range(len(group)):
@@ -22,11 +22,11 @@ def find_all_permutations(word):
         anagrams.append(combined)
     return anagrams
 
-def check_new_permutation(permutation):
+def check_new_permutation(permutation: str):
     """Checks if the permutation of a word is a valid English language word."""
     return permutation, wordDictionary.check(permutation)
 
-def organize_results(result):
+def organize_results(result: str):
     """Sorts a permutation into one of two lists based on validity."""
     permutation, validity = result
     match validity:
@@ -36,7 +36,7 @@ def organize_results(result):
             add_to_list(permutation, invalidWords)
     invalidWords.sort()
 
-def format_string(validAnagrams, invalidAnagrams):
+def format_string(validAnagrams: list, invalidAnagrams: list):
     """Formats all the anagrams into a nice, readable format."""
     validString = ", ".join(validAnagrams)
     invalidString = ", ".join(invalidAnagrams)
@@ -49,7 +49,7 @@ def format_string(validAnagrams, invalidAnagrams):
         """
     return formattedString
 
-def find_anagrams(word):
+def find_anagrams(word: str):
     """Gives all the anagrams of a given word in an easily-readable format. Isn't that nice?"""
     for newWord in find_all_permutations(word):
         organize_results(check_new_permutation(newWord))
