@@ -3,18 +3,18 @@ import itertools as it
 
 wordDictionary: enchant.Dict = enchant.Dict("en_US")
 
-validWords: list = []
-invalidWords: list = []
+validWords: list[str] = []
+invalidWords: list[str] = []
 
-def add_to_list(addition: str, destination: list):
+def add_to_list(addition: str, destination: list[str]):
     """Adds the given addition to the destination list (if it's not already in there)"""
     if addition not in destination:
         destination.append(addition)
 
 def find_all_permutations(word: str):
     """Finds all the permutations of a given word."""
-    permutations: list = [permutation for permutation in it.permutations(word)]
-    anagrams: list = []
+    permutations: list[str] = [permutation for permutation in it.permutations(word)]
+    anagrams: list[str] = []
     for group in permutations:
         combined = ""
         for letter in range(len(group)):
@@ -36,7 +36,7 @@ def organize_results(result: str):
             add_to_list(permutation, invalidWords)
     invalidWords.sort()
 
-def format_string(validAnagrams: list, invalidAnagrams: list):
+def format_string(validAnagrams: list[str], invalidAnagrams: list[str]):
     """Formats all the anagrams into a nice, readable format."""
     validString = ", ".join(validAnagrams)
     invalidString = ", ".join(invalidAnagrams)
@@ -48,7 +48,7 @@ def format_string(validAnagrams: list, invalidAnagrams: list):
         {invalidString}
         """
     return formattedString
-
+[str]
 def find_anagrams(word: str):
     """Gives all the anagrams of a given word in an easily-readable format. Isn't that nice?"""
     for newWord in find_all_permutations(word):
