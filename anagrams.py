@@ -48,7 +48,7 @@ def format_string(validAnagrams: list[str], invalidAnagrams: list[str]):
         {invalidString}
         """
     return formattedString
-[str]
+
 def find_anagrams(word: str):
     """Gives all the anagrams of a given word in an easily-readable format. Isn't that nice?"""
     for newWord in find_all_permutations(word):
