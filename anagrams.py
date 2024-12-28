@@ -1,3 +1,9 @@
+"""
+Does a word have an anagram that is another word in the English language? Perhaps! This module can help discover that information.\n
+Using the "find_anagrams" function you, too, can test any given word (though longer ones might take a while) and, if you so choose,\n
+save it to a .txt file because the list might be longer than the terminal is happy with.
+"""
+
 import enchant #-- pip install pyenchant
 import itertools as it
 
@@ -49,8 +55,12 @@ def format_string(validAnagrams: list[str], invalidAnagrams: list[str]):
         """
     return formattedString
 
-def find_anagrams(word: str):
+def find_anagrams(word: str, save: bool = False):
     """Gives all the anagrams of a given word in an easily-readable format. Isn't that nice?"""
     for newWord in find_all_permutations(word):
         organize_results(check_new_permutation(newWord))
-    print(format_string(validWords, invalidWords))
+    finalAnagramList = format_string(validWords, invalidWords)
+    print(finalAnagramList)
+    if save == True:
+        with open("anagrams.txt", "w") as anagramText:
+            anagramText.write(finalAnagramList)

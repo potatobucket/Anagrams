@@ -1,0 +1,9 @@
+An example of the program's output using the word "flea" as the input:
+
+
+        There are 3 valid English language anagrams:
+        flea, feal, leaf
+        
+        There are 21 that are not valid English language words:
+        aefl, aelf, afel, afle, alef, alfe, eafl, ealf, efal, efla, elaf, elfa, fael, fale, fela, flae, laef, lafe, lefa, lfae, lfea
+        
